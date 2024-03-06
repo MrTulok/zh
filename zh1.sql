@@ -14,5 +14,3 @@ from Foglalas f JOIN Szoba sz ON f.SZOBA_FK = sz.SZOBA_ID
 WHERE sz.SZOBA_ID%2 <> 0
 GROUP BY sz.SZOBA_ID, YEAR(f.METTOL)
 HAVING COUNT(*)>10
-
-
