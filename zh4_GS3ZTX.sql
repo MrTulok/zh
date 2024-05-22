@@ -34,7 +34,7 @@ SELECT IIF(GROUPING_ID(szh.SZALLAS_NEV) = 1, 'Végösszeg', CAST(szh.SZALLAS_NEV
         WHEN 1 THEN 'Részösszeg'
         WHEN 3 THEN 'Végösszeg'
     END as 'Pótágyszám',
-    SUM(f.FELNOTT_SZAM + f.GYERMEK_SZAM) AS 'Darab'
+    SUM(f.FELNOTT_SZAM + f.GYERMEK_SZAM) AS 'Emberszám'
 FROM szallashely szh
     JOIN Szoba sz ON szh.SZALLAS_ID = sz.SZALLAS_FK
     JOIN Foglalas f ON f.SZOBA_FK = sz.SZOBA_ID
@@ -47,6 +47,5 @@ CREATE TABLE #MASKED_GUEST(
 	[NEV] [nvarchar](50) masked with (function = 'partial(2,"XXX",3)'),
 	[EMAIL] [nvarchar](60) NOT NULL,
 	[SZAML_CIM] [nvarchar](100) NULL,
-	[SZUL_DAT] [date] NULL,
- CONSTRAINT [PK_Vendeg] PRIMARY KEY CLUSTERED
+	[SZUL_DAT] [date] NULL
 ) ON [PRIMARY]
