@@ -1,12 +1,18 @@
- hset IRO:1 ID 1 nev "Nagy Lajos" nemzetiseg "magyar"
- hset IRO:2 ID 2 nev "Kiss Pista" nemzetiseg "magyar"
+1.feladat
+
+hset IRO:1 ID 1 nev "Nagy Lajos" nemzetiseg "magyar"
+hset IRO:2 ID 2 nev "Kiss Pista" nemzetiseg "magyar"
 
 hset KONYV:1:1 ID 1 cim "A konyv" IRO_ID 1
 hset KONYV:3:2 ID 3 cim "Nem tudom" IRO_ID 2
 
+2.feladat
+
 create table STUDENT(ID int, Nev text, Teljesitett_felevek list<int>, Eredmenyek map<int,float>, Nyelvtudas set<text>,primary key(ID));
 insert into STUDENT (ID, Nev, Teljesitett_felevek,Eredmenyek,Nyelvtudas) values (1,'Nagy Lajos',[1,2,3],{1:5.00,2:4.65,3:4.67},{'magyar','angol','nemet'});
 insert into STUDENT (ID, Nev, Teljesitett_felevek,Eredmenyek,Nyelvtudas) values (2,'Tóth Kriszta',[1,2,3,4],{1:4.78,2:4.00,3:4.86,4:4.78},{'magyar','angol'});
+
+3.feladat
 
 match(b:Person)-[:ACTED_IN]->(m:Movie)<-[:ACTED_IN]-(a:Person)
 where a.name = 'Tom Hanks'
